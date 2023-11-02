@@ -1,0 +1,18 @@
+form {
+  width: 130px;
+}
+
+div.post-content {
+  width: 100%;
+}
+
+@media (min-width: 0px) and (max-width: 400px) {
+  div.card-body {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  div.btns-container {
+    display: flex;
+    justify-content: center;
+  }
+}
