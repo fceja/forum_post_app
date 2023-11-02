@@ -3,8 +3,9 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/post.css' %}">
+<link rel="stylesheet" href="{% static 'css/main/create-post.css' %}">
 {% endblock %}
+
 <form method='post'>
     {% csrf_token %}{{form|crispy}}
     <div class="div-btn">
