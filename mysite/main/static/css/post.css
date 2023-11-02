@@ -1,0 +1,12 @@
+form {
+  margin-top: 20px;
+}
+
+.div-btn {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 70%;
+}
