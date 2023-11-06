@@ -1,7 +1,7 @@
 venv/
 .env
 .DS_Store
-*/__pycache__/
-*.py[cod]
+**/__pycache__/
+**.py[cod]
 **/migrations/**
 !/**/migrations/__init__.py
