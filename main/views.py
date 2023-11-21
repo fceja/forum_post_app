@@ -5,6 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User, Group
 from .models import Post
 
+
 @login_required(login_url='/login')
 def home(request):
     posts = Post.objects.all()
@@ -34,7 +35,8 @@ def home(request):
 
         print(post_id)
 
-    return render(request, 'main/home.html', {'posts':posts})
+    return render(request, 'main/home.html', {'posts': posts})
+
 
 @login_required(login_url='/login')
 @permission_required('main.add_post', login_url='/login', raise_exception=True)
@@ -49,7 +51,8 @@ def create_post(request):
     else:
         form = PostForm()
 
-    return render(request, 'main/create_post.html', {'form':form})
+    return render(request, 'main/create_post.html', {'form': form})
+
 
 def sign_up(request):
     if request.method == 'POST':
