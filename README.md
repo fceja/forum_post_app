@@ -42,6 +42,6 @@ MacOS / Linux
 Screenshots
 ---
 
-![alt text](mysite/main/static/screenshots/screenshot-ui-1.png "Screenshot of UI-1")
-![alt text](mysite/main/static/screenshots/screenshot-ui-2.png "Screenshot of UI-2")
-![alt text](mysite/main/static/screenshots/screenshot-ui-3.png "Screenshot of UI-3")
+![alt text](main_site/static/screenshots/screenshot-ui-1.png "Screenshot of UI-1")
+![alt text](main_site/static/screenshots/screenshot-ui-2.png "Screenshot of UI-2")
+![alt text](main_site/static/screenshots/screenshot-ui-3.png "Screenshot of UI-3")
