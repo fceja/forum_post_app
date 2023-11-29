@@ -1,6 +1,9 @@
-{% extends 'main/base.html' %} {% block title %}Create a Post{% endblock%} {%
-load crispy_forms_tags %} {% block content %} {% load static %} {% block css %}
-<link href="{% static 'css/main/create-post.css' %}" />
+{% extends 'main/base.html' %}
+{% block title %}Create a Post{% endblock%}
+{% load crispy_forms_tags %} {% block content %}
+{% load static %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/main/create-post.css' %}" />
 {% endblock %}
 
 <form method="post">
