@@ -2,14 +2,13 @@
 {% load crispy_forms_tags %} {% block content %}
 {% load static %}
 {% block css %}
-<link type="text/css" rel="stylesheet" href="{% static 'css/registration/login-signup.css' %}" />
 {% endblock %}
 
-<form method="post">
+<form class="col-7 ms-auto me-auto mt-3" method="post">
   {% csrf_token %}{{form|crispy}}
-  <p>Have an account? Login <a href="/login">Here</a>!</p>
-  <div class="div-btn">
-    <button type="submit" class="btn btn-success">Register</button>
+  <p class="text-align-center" >Have an account? Login <a href="/login">Here</a>!</p>
+  <div class="div-btn d-flex justify-content-center">
+    <button type="submit" class="btn btn-success col-6 p-1 m-0">Register</button>
   </div>
 </form>
 {% endblock %}
