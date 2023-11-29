@@ -1,12 +1,6 @@
-{% extends 'main/base.html' %} {% block title %}Sign Up{% endblock%}
-{% load crispy_forms_tags %} {% block content %}
-{% load static %}
-
-{% block css %}
-    <link
-    rel="stylesheet"
-    src="{% static 'css/registration/login-signup.css' %}"
-    />
+{% extends 'main/base.html' %} {% block title %}Sign Up{% endblock%} {% load
+crispy_forms_tags %} {% block content %} {% load static %} {% block css %}
+<link href="{% static 'css/registration/login-signup.css' %}" />
 {% endblock %}
 
 <form method="post">
