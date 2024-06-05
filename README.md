@@ -24,8 +24,7 @@ There are three types of users:
 ```
 
 # Installation
-![](https://img.shields.io/badge/OS-Linux-informational?style=flat&logo=linux&logoColor=white&color=eaeaea)
-![](https://shields.io/badge/OS-MacOS-informational?style=flat&logo=Apple&logoColor=white&color=eaeaea)
+![](https://img.shields.io/badge/Unix-informational?style=flat&logo=unix&logoColor=black&color=eaeaea)
 
 </br>
 ** Note: .env file does not contain secrets, therefore, app will not work unless valid details are provided
