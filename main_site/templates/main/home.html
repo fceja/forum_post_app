@@ -1,38 +1,50 @@
 {% extends 'main/base.html' %}
 {% load static %}
-{% block title %}Home Page{% endblock %}
-{% block content %}
-
+{% block title %}Home Page{% endblock %} {% block content %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/main/home.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'css/main/home.css' %}" />
 {% endblock %}
 
 {% for post in posts|dictsortreversed:"created_at" %}
-<div class = 'card mt-2'>
-    <div class='card-header'><strong>@{{ post.author.username }}</strong></div>
-    <div class='card-body d-flex flex-row justify-content-between'>
-        <div class='post-content'>
-            <h5 class='card-title'>{{ post.title }}</h5>
-            <p>{{post.description}}</p>
-        </div>
-        <div class="btns-container">
-        {% if user == post.author or perms.main.delete_post %}
-            <form class='p-1' method='POST'>
-               {% csrf_token %}
-               <button type='submit' class='btn btn-danger' name='post-id' value='{{post.id}}' style="width:100%">Delete</button>
-            </form>
-            {% endif %}
-            {% if user.is_staff %}
-            <form class='p-1' method='POST'>
-                {% csrf_token %}
-                <button type='submit' class='btn btn-warning' name='user-id' value='{{post.author.id}}' style="width:100%">Ban User</button>
-            </form>
-            {% endif %}
-        </div>
+<div class="card mt-2">
+  <div class="card-header"><strong>@{{ post.author.username }}</strong></div>
+  <div class="card-body d-flex flex-row justify-content-between">
+    <div class="post-content widht-100">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p>{{post.description}}</p>
     </div>
-    <div class='card-footer text-muted'>{{post.created_at}}</div>
+    <div class="btns-container">
+      {% if user == post.author or perms.main.delete_post %}
+      <form class="p-1" method="POST">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="btn btn-danger"
+          name="post-id"
+          value="{{post.id}}"
+          style="width: 100%"
+        >
+          Delete
+        </button>
+      </form>
+      {% endif %} {% if user.is_staff %}
+      <form class="p-1" method="POST">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="btn btn-warning"
+          name="user-id"
+          value="{{post.author.id}}"
+          style="width: 100%"
+        >
+          Ban User
+        </button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+  <div class="card-footer text-muted">{{post.created_at}}</div>
 </div>
 {% empty %}
 <p>No Posts yet :(</p>
-{% endfor %}
-{% endblock %}
+{% endfor %} {% endblock %}
