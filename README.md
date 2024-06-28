@@ -27,7 +27,7 @@ There are three types of users:
 ![](https://img.shields.io/badge/Unix-informational?style=flat&logo=unix&logoColor=black&color=eaeaea)
 
 </br>
-** Note: .env file does not contain secrets, therefore, app will not work unless valid details are provided
+** Note: must rename sample.env file to .env, and fill with valid values
 </br>
 </br>
 
@@ -38,7 +38,7 @@ There are three types of users:
 3. Open terminal, navigate to repo project root.
 
 4. Setup virtual environment, in terminal enter:
-    1. ```python3 -m venv venv``` - creates virtual environment 
+    1. ```python3 -m venv venv``` - creates virtual environment
     2. ```source venv/bin/activate``` - initializes virtual environment
        - ** Note - you should see ```(venv)``` in terminal when successfully initialized
 5. Install project requirements
@@ -74,7 +74,6 @@ There are three types of users:
       height="40"
     />
 </a>
-  
 <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
     <img
       src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
@@ -83,7 +82,6 @@ There are three types of users:
       height="40"
     />
 </a>
-
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer">
     <img
       src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg"
@@ -92,7 +90,6 @@ There are three types of users:
       height="40"
     />
 </a>
-
 <a href="https://www.postgresql.org/" target="_blank" rel="noreferrer">
     <img
       src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg"
