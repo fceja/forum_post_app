@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Home Page{% endblock %} {% block content %}
 {% block css %}
-<link type="text/css" rel="stylesheet" href="{% static 'css/main/home.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'static/css/main/home.css' %}" />
 {% endblock %}
 
 {% for post in posts|dictsortreversed:"created_at" %}
