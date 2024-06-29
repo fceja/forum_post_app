@@ -44,7 +44,7 @@ There are three types of users:
 5. Install project requirements
     - ```pip install -r requirements.txt```
 6. Run server
-    - ```python ./manage.py runserver```
+    - ```export DJANGO_ENV=development && python ./manage.py runserver```
 
 
 
