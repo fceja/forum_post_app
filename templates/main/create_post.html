@@ -1,0 +1,16 @@
+{% extends  'main/base.html' %}
+{% block title %}Create a Post{% endblock %}
+{% load crispy_forms_tags static %}
+
+{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/main/create-post.css' %}">
+{% endblock %}
+
+<form method="post" class="mt-5">
+  {% csrf_token %}{{form|crispy}}
+  <div class="div-btn d-flex justify-content-center">
+    <button type="submit" class="btn btn-success col-5 p-1 m-0">Post</button>
+  </div>
+</form>
+{% endblock %}
