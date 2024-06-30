@@ -1,15 +1,10 @@
-.div-btn {
-  display: flex;
-  justify-content: center;
-}
-
-form {
+.post-form {
   margin-top: 50px;
   min-width: 300px;
   max-width: 600px;
   margin: 40px auto 0 auto;
 }
 
-button {
+.post-form button {
   width: 300px;
 }

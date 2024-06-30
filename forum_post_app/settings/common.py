@@ -12,14 +12,16 @@ from .i18n import *
 import mimetypes
 import os
 
-## load env vars ##
+## init configurations ##
 load_dotenv()
+mimetypes.add_type("text/css", ".css", True)
 
-## path configurations ##
+SECRET_KEY = os.getenv('SECRET_KEY')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 ## application configurations ##
-mimetypes.add_type("text/css", ".css", True)
+WSGI_APPLICATION = 'forum_post_app.wsgi.application'
+ROOT_URLCONF = 'forum_post_app.urls'
 
 LOGIN_URL = None # Django's built-in login view
 LOGIN_REDIRECT_URL = '/home'
@@ -43,14 +45,6 @@ TEMPLATES = [
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
-
-## security configurations ##
-SECRET_KEY = os.getenv('SECRET_KEY')
-
-## django running configurations ##
-WSGI_APPLICATION = 'forum_post_app.wsgi.application'
-
-ROOT_URLCONF = 'forum_post_app.urls'
 
 ## application configurations ##
 # NOTE: make sure changes for MIDDLEWARE are ok for production - otherwise, separate into respective env file
@@ -81,3 +75,36 @@ MIDDLEWARE = [
 ## debug configurations ##
 DEBUG = False # should always be false here
 ALLOWED_HOSTS = []
+
+## database configurations ##
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('DATABASE_ENGINE'),
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT')
+    }
+}
+
+## password validations ##
+# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+## Default primary key field type ##
+# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
