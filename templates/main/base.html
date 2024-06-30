@@ -10,7 +10,7 @@
     <title>{% block title %}My Site{% endblock %}</title>
 </head>
 <body style="min-width: 320px;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm">
         <div class="container-fluid">
             <div>
                 <ul class="navbar-nav">
@@ -25,9 +25,15 @@
             <div>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                    <span class='navbar-text'>Logged in as {{user.username}} | </span>
+                    <span class='navbar-text'>Logged in as {{user.username}}
+
+                        <span class='navbar-sep d-none-sm'> | </span>
+                    </span>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button class="nav-link nav-link-logout btn btn-link" type="submit">Logout</button>
+                        </form>
                     </li>
                     {% else %}
                     <li class="nav-item">
