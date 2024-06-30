@@ -1,3 +1,30 @@
 body {
   min-width: 320px;
 }
+
+.navbar {
+  background-color: rgb(15, 52, 122);
+}
+
+.navbar-text,
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: rgb(195, 195, 195);
+}
+
+.navbar-sep {
+  color: rgb(168, 168, 168);
+}
+
+@media (max-width: 576px) {
+  .navbar-sep {
+    display: none;
+  }
+
+  .nav-link-logout {
+    text-align: right;
+    width: 100%;
+  }
+}
