@@ -2,6 +2,8 @@
 A forum-like app created with Django framework.<br/>
 App allows users to create an account, login, and create posts on a community webpage.<br/> 
 
+Supports role based login functionality.
+
 You can view implementation here -> [Forum Post App](https://django-user-post-a42f5d79d28f.herokuapp.com/)
 
 <br/>
