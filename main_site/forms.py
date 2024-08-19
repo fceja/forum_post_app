@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 from .models import Post
 
@@ -13,6 +14,15 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email"]
+
+    # added since cause issue when posting
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if email and email.endswith("@email.com"):
+            raise ValidationError(
+                "Registration with '@email.com' addresses is not allowed."
+            )
+        return email
 
 
 class PostForm(forms.ModelForm):
