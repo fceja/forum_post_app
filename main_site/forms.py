@@ -12,10 +12,10 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ["username", "email"]
 
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'description']
+        fields = ["title", "description"]
