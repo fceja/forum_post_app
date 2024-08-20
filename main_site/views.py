@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, PostForm
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User, Group
 from .models import Post
 from django.contrib.auth.models import Permission
@@ -48,7 +48,14 @@ def ban_user(request):
         user_id = request.POST.get("user-id")
         try:
             user = User.objects.get(id=user_id)
-            user.is_active = False
+
+            # remove the add_post permission
+            content_type = ContentType.objects.get_for_model(Post)
+            add_post_permission = Permission.objects.get(
+                codename="add_post", content_type=content_type
+            )
+            user.user_permissions.remove(add_post_permission)
+
             user.save()
             return redirect("/home")
 
