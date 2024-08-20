@@ -6,6 +6,7 @@ from django.contrib.auth.models import User, Group
 from .models import Post
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
+from django.http import HttpResponseForbidden
 
 
 @login_required(login_url="/login")
@@ -38,6 +39,23 @@ def home(request):
                     pass
 
     return render(request, "main/home.html", {"posts": posts})
+
+
+@login_required
+@permission_required("auth.can_ban_user", raise_exception=True)
+def ban_user(request):
+    if request.method == "POST":
+        user_id = request.POST.get("user-id")
+        try:
+            user = User.objects.get(id=user_id)
+            user.is_active = False
+            user.save()
+            return redirect("/home")
+
+        except User.DoesNotExist:
+            return HttpResponseForbidden("User does not exist.")
+
+    return HttpResponseForbidden("Invalid request.")
 
 
 @login_required(login_url="/login")

@@ -27,8 +27,9 @@
           Delete
         </button>
       </form>
-      {% endif %} {% if user.is_staff %}
-      <form class="p-1" method="POST">
+      {% endif %}
+      {% if user.is_staff %}
+      <form class="p-1" method="POST" action="{% url 'ban_user' %}"">
         {% csrf_token %}
         <button
           type="submit"
