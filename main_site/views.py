@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User, Group
 from .models import Post
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
 
 
 @login_required(login_url="/login")
@@ -39,7 +41,7 @@ def home(request):
 
 
 @login_required(login_url="/login")
-@permission_required("main.add_post", login_url="/login", raise_exception=True)
+@permission_required("main_site.add_post", login_url="/login", raise_exception=True)
 def create_post(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -59,7 +61,22 @@ def sign_up(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
+
+            # assign add_post permission
+            content_type = ContentType.objects.get_for_model(Post)
+            add_post_permission = Permission.objects.get(
+                codename="add_post", content_type=content_type
+            )
+            user.user_permissions.add(add_post_permission)
+            user.save()
+
+            # re-authenticate to refresh their permissions
+            user = authenticate(
+                username=form.cleaned_data["username"],
+                password=form.cleaned_data["password1"],
+            )
             login(request, user)
+
             return redirect("/home")
     else:
         form = RegisterForm()
