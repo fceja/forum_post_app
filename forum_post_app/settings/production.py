@@ -6,7 +6,7 @@ from .common import *
 
 ## debug configurations ##
 DEBUG = False
-ALLOWED_HOSTS = ["django-forum-post-660c391dbe52.herokuapp.com/"]
+ALLOWED_HOSTS = ["django-forum-post-660c391dbe52.herokuapp.com"]
 
 ## static files - https://docs.djangoproject.com/en/4.1/howto/static-files/ ##
 # NOTE: must first run `python3 ./manage.py collectstatic`
